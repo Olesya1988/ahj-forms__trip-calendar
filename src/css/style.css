@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #dbdfde;
+  padding: 20px;
+}
+
+.container {
+  width: 300px;
+  height: 600px;  
+  margin-left: auto;
+  margin-right: auto;
+  /* padding: 20px; */
+  background-image: url('../pic/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.container::after {
+  content: '';
+  background-color: black;
+  width: 280px;
+  height: 580px;
+  position: absolute;
+  opacity: 70%;
+  top: 10px;
+  left: 10px;
+  z-index: -1;
+}
+
+.container__header {
+  height: 30px;
+  color: white;
+  padding: 30px;
+  font-size: 20px;
+}
+
+.from, .to, .date {
+  padding: 5px;
+}
+
+.from {
+  position: relative;
+}
+
+.from::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url('../pic/refresh.png');
+  background-size: cover;
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.search-container {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  padding: 30px;
+}
+
+.from__input, .to__input, .adults__choose, .children__choose, .childrenFive__choose, .date__input, .roundtrip__input {
+  height: 30px;
+  margin-top: 5px;
+}
+
+.to__input, .date__input {
+  width: 100%;
+}
+
+.adults-children, .childrenFive-roundtrip {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.adults, .children, .childrenFive, .roundtrip {
+  width: 45%;
+  padding: 5px;
+}
+
+.adults__choose, .children__choose, .childrenFive__choose {  
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  color: black;
+}
+
+.minus, .plus {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.minus {
+  color: green;
+  border-color: green;
+}
+
+.plus {
+  color: brown;
+  border-color: brown;
+}
+
+.roundtrip__input {
+  width: 30px;
+  background-color: white;
+  cursor: pointer;
+  z-index: 3;
+  color: black;
+}
+
+.there-back {
+  display: flex;
+  gap: 80px;
+}
+
+.there-back__input {
+  display: flex;
+}
+
+.there__input, .back__input {
+  width: 50%;
+  height: 30px;
+}
+
+.there-back__input {
+  margin-top: 5px;
+  position: relative;
+}
+
+.check {
+  width: 30px;
+  height: 30px;
+  border: 5px solid white;
+  background-image: url('../pic/check.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 999;
+}
+
+.submit {
+  width: 96%;
+  margin: 10px 5px;
+  padding: 10px;
+  background-color: brown;
+  color: white;
+  border: 1px solid brown;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.calendar {
+  position: absolute;
+}
+
+.calendar__header {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+}
+
+.calendar__title {
+  text-align: center;
+  text-transform: uppercase;  
+}
+
+.next, .prev {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {  
+  padding: 3px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
+th {
+  font-weight: bold;
+  background-color: white;
+  color: black;
+}
+
+td:hover {
+  background-color: rgb(155, 152, 152);
+}
+
+.today {
+  border: 1px solid brown;
+  background-color: brown;
+}
+
+.active {
+  border: 1px solid brown;
+}
+
+.inactive {
+  color: gray;
+  cursor: no-drop;
+}
+
+.wrong {
+  color: red;
+}
+
+/* .container__header {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  padding: 30px;
+  font-size: 20px;  
+}
+
+.container__button {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.card-container {
+  width: 100%;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.card, .card-container__title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.card-container__title {
+  margin-bottom: 10px;
+}
+
+.card__name, .card-container__title-name {
+  width: 50%;
+}
+
+.card-container__title-actions {
+  text-align: center;
+}
+
+.card__price, .card-container__title-price {
+  width: 30%;
+}
+
+.card__actions, .card-container__title-actions {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+}
+
+.card__edit, .card__delete {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.card__edit {
+  background-image: url('../pic/pencil.png');  
+}
+
+.card__delete {
+  background-image: url('../pic/close.png');
+}
+
+.modal__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__content {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, .3);
+}
+
+.modal__form {
+  width: 100%;
+}
+
+.name-form__input, .price-form__input {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit, .cancel {
+  border-radius: 8px;
+  background-color: white;
+  width: 100px;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+} */
